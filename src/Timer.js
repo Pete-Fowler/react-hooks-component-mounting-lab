@@ -7,8 +7,15 @@ class Timer extends Component {
   };
 
   // add your code here
+  componentDidMount() {
+    this.id = setInterval(this.clockTick, 1000);
+  }
 
-  render() {
+  componentWillUnmount() {
+    clearInterval(this.id);
+  }
+
+  render() {gi
     const { time, color } = this.state;
     return (
       <section className="Timer" style={{ background: color }}>
